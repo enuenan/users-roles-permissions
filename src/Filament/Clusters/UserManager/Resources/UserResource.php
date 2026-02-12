@@ -8,25 +8,35 @@
 
 namespace enuenan\UsersRolesPermissions\Filament\Clusters\UserManager\Resources;
 
-use App\Models\User;
-use enuenan\UsersRolesPermissions\Filament\Clusters\UserManager;
+use Filament\Forms;
+use Filament\Tables;
+use Filament\Tables\Table;
+use Filament\Actions\Action;
+use Filament\Schemas\Schema;
 use Filament\Clusters\Cluster;
 use Filament\Facades\Filament;
-use Filament\Forms;
-use Filament\Forms\Components\SpatieMediaLibraryFileUpload;
-use Filament\Forms\Form;
+use Filament\Actions\EditAction;
 use Filament\Resources\Resource;
-use Filament\Tables;
-use Filament\Tables\Actions\ActionGroup;
-use Filament\Tables\Table;
-use Illuminate\Contracts\Support\Htmlable;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Filament\Actions\ActionGroup;
+use Filament\Actions\DeleteAction;
+use Filament\Actions\RestoreAction;
+use Illuminate\Foundation\Auth\User;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Http;
+use Filament\Actions\BulkActionGroup;
+use Filament\Actions\DeleteBulkAction;
+use Filament\Actions\ForceDeleteAction;
+use Filament\Actions\RestoreBulkAction;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Contracts\Support\Htmlable;
+use Filament\Actions\ForceDeleteBulkAction;
 use Ysfkaya\FilamentPhoneInput\Forms\PhoneInput;
+use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Ysfkaya\FilamentPhoneInput\PhoneInputNumberType;
+use Filament\Forms\Components\SpatieMediaLibraryFileUpload;
+use enuenan\UsersRolesPermissions\Filament\Clusters\UserManager;
 
 class UserResource extends Resource
 {
@@ -34,10 +44,10 @@ class UserResource extends Resource
 
     protected static ?string $recordTitleAttribute = 'name';
 
-    public static function form(Form $form): Form
+    public static function form(Schema $schema): Schema
     {
-        return $form
-            ->schema([
+        return $schema
+            ->components([
                 Forms\Components\TextInput::make('name')
                     ->label(__('users-roles-permissions::users-roles-permissions.user.resource.form.name'))
                     ->required()
@@ -54,7 +64,7 @@ class UserResource extends Resource
                     ->unique(User::class, 'mobile', ignoreRecord: true)
                     ->rules(['phone'])
                     ->ipLookup(function () {
-                        return rescue(fn () => Http::get('https://ipinfo.io/json')->json('country'), app()->getLocale(), report: false);
+                        return rescue(fn() => Http::get('https://ipinfo.io/json')->json('country'), app()->getLocale(), report: false);
                     })
                     ->displayNumberFormat(PhoneInputNumberType::NATIONAL),
                 Forms\Components\Select::make('role_id')
@@ -68,9 +78,9 @@ class UserResource extends Resource
                     ->label(__('users-roles-permissions::users-roles-permissions.user.resource.form.password'))
                     ->password()
                     ->confirmed()
-                    ->dehydrateStateUsing(fn ($state) => Hash::make($state))
-                    ->dehydrated(fn ($state) => filled($state))
-                    ->required(fn (string $context): bool => $context === 'create')
+                    ->dehydrateStateUsing(fn($state) => Hash::make($state))
+                    ->dehydrated(fn($state) => filled($state))
+                    ->required(fn(string $context): bool => $context === 'create')
                     ->maxLength(255),
                 Forms\Components\TextInput::make('password_confirmation')
                     ->label(__('users-roles-permissions::users-roles-permissions.user.resource.form.confirm-password'))
@@ -170,37 +180,37 @@ class UserResource extends Resource
                 Tables\Filters\TrashedFilter::make()
                     ->native(false),
             ])
-            ->actions(
+            ->toolbarActions(
                 ActionGroup::make([
-                    Tables\Actions\EditAction::make()->slideOver()->visible(function ($record) {
-                        return ! (auth()->id() === $record->id);
+                    EditAction::make()->slideOver()->visible(function ($record) {
+                        return ! (Auth::id() === $record->id);
                     }),
-                    Tables\Actions\DeleteAction::make()->visible(function ($record) {
-                        return ! (auth()->id() === $record->id);
+                    DeleteAction::make()->visible(function ($record) {
+                        return ! (Auth::id() === $record->id);
                     }),
-                    Tables\Actions\ForceDeleteAction::make(),
-                    Tables\Actions\RestoreAction::make(),
-                    Tables\Actions\Action::make('Profile')
+                    ForceDeleteAction::make(),
+                    RestoreAction::make(),
+                    Action::make('Profile')
                         ->label(__('users-roles-permissions::users-roles-permissions.user.resource.table.actions.edit-profile'))
                         ->icon('heroicon-o-user')
                         ->url(Filament::getProfileUrl())->visible(function ($record) {
                             if (UserManager::checkAccess('getCanEditUser', $record)) {
-                                return auth()->id() === $record->id;
+                                return Auth::id() === $record->id;
                             }
 
                             return false;
                         }),
                 ])
             )
-            ->bulkActions([
-                Tables\Actions\BulkActionGroup::make([
-                    Tables\Actions\DeleteBulkAction::make()->visible(function () {
+            ->toolbarActions([
+                BulkActionGroup::make([
+                    DeleteBulkAction::make()->visible(function () {
                         return UserManager::checkAccess('getCanDeleteUser');
                     }),
-                    Tables\Actions\ForceDeleteBulkAction::make()->visible(function () {
+                    ForceDeleteBulkAction::make()->visible(function () {
                         return UserManager::checkAccess('getCanDeleteUser');
                     }),
-                    Tables\Actions\RestoreBulkAction::make()->visible(function () {
+                    RestoreBulkAction::make()->visible(function () {
                         return UserManager::checkAccess('getCanEditUser');
                     }),
                 ]),

@@ -10,17 +10,18 @@ declare(strict_types=1);
 
 namespace enuenan\UsersRolesPermissions\Filament\Clusters\UserManager\Resources\UserResource\Pages;
 
-use App\Models\User;
-use enuenan\UsersRolesPermissions\Filament\Clusters\UserManager;
 use Exception;
-use Filament\Forms\Components\Section;
-use Filament\Forms\Components\SpatieMediaLibraryFileUpload;
 use Filament\Forms\Form;
+use Illuminate\Foundation\Auth\User;
 use Illuminate\Support\Facades\Http;
+use Filament\Schemas\Components\Section;
 use Ysfkaya\FilamentPhoneInput\Forms\PhoneInput;
 use Ysfkaya\FilamentPhoneInput\PhoneInputNumberType;
+use Filament\Auth\Pages\EditProfile as BaseEditProfile;
+use Filament\Forms\Components\SpatieMediaLibraryFileUpload;
+use enuenan\UsersRolesPermissions\Filament\Clusters\UserManager;
 
-class EditProfile extends \Filament\Pages\Auth\EditProfile
+class EditProfile extends BaseEditProfile
 {
     /**
      * @return array<int | string, string | Form>
@@ -41,7 +42,8 @@ class EditProfile extends \Filament\Pages\Auth\EditProfile
                                 $this->getMobileNumberComponent(),
                                 $this->getPasswordFormComponent(),
                                 $this->getPasswordConfirmationFormComponent(),
-                            ])])
+                            ])
+                    ])
                     ->operation('edit')
                     ->model($this->getUser())
                     ->statePath('data')
@@ -61,7 +63,7 @@ class EditProfile extends \Filament\Pages\Auth\EditProfile
             ->unique(User::class, 'mobile', ignoreRecord: true)
             ->rules(['phone'])
             ->ipLookup(function () {
-                return rescue(fn () => Http::get('https://ipinfo.io/json')->json('country'), app()->getLocale(), report: false);
+                return rescue(fn() => Http::get('https://ipinfo.io/json')->json('country'), app()->getLocale(), report: false);
             })
             ->displayNumberFormat(PhoneInputNumberType::NATIONAL);
     }
