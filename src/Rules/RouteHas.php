@@ -1,16 +1,16 @@
 <?php
 
 /*
- * Copyright CWSPS154. All rights reserved.
- * @auth CWSPS154
- * @link  https://github.com/CWSPS154
+ * Copyright enuenan. All rights reserved.
+ * @auth enuenan
+ * @link  https://github.com/enuenan
  */
 
-namespace CWSPS154\UsersRolesPermissions\Rules;
+namespace enuenan\UsersRolesPermissions\Rules;
 
 use Closure;
-use CWSPS154\UsersRolesPermissions\Models\Permission;
-use CWSPS154\UsersRolesPermissions\UsersRolesPermissionsServiceProvider;
+use enuenan\UsersRolesPermissions\Models\Permission;
+use enuenan\UsersRolesPermissions\UsersRolesPermissionsServiceProvider;
 use Exception;
 use Filament\Facades\Filament;
 use Illuminate\Contracts\Validation\ValidationRule;

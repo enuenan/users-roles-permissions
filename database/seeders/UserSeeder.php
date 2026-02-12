@@ -1,15 +1,15 @@
 <?php
 
 /*
- * Copyright CWSPS154. All rights reserved.
- * @auth CWSPS154
- * @link  https://github.com/CWSPS154
+ * Copyright enuenan. All rights reserved.
+ * @auth enuenan
+ * @link  https://github.com/enuenan
  */
 
-namespace CWSPS154\UsersRolesPermissions\Database\Seeders;
+namespace enuenan\UsersRolesPermissions\Database\Seeders;
 
 use App\Models\User;
-use CWSPS154\UsersRolesPermissions\Models\Role;
+use enuenan\UsersRolesPermissions\Models\Role;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
 

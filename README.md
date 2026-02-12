@@ -16,13 +16,13 @@ Filament User & Roles & Permissions for Filament v4.
 Install Using Composer
 
 ```shell
-composer require cwsps154/users-roles-permissions
+composer require enuenan/users-roles-permissions
 ```
 ## Usage/Examples
 
 Add this into your Filament `PannelProvider` class `panel()`
 ```php
-use CWSPS154\UsersRolesPermissions\UsersRolesPermissionsPlugin;
+use enuenan\UsersRolesPermissions\UsersRolesPermissionsPlugin;
 
 $panel->databaseNotifications() //need to see the export files for the permission
     ->databaseTransactions() //optional
@@ -30,13 +30,13 @@ $panel->databaseNotifications() //need to see the export files for the permissio
 ```
 You can also update UserResource using `setUserResource(UserResource::class)` in the plugin
 ```php
-use CWSPS154\UsersRolesPermissions\UsersRolesPermissionsPlugin;
+use enuenan\UsersRolesPermissions\UsersRolesPermissionsPlugin;
 
 $panel->plugins([UsersRolesPermissionsPlugin::make()->setUserResource(UserResource::class)]);
 ```
-You can create custom `UserResource` and extend `CWSPS154\UsersRolesPermissions\Filament\Clusters\UserManager\Resources\UserResource as CoreUserResource`
+You can create custom `UserResource` and extend `enuenan\UsersRolesPermissions\Filament\Clusters\UserManager\Resources\UserResource as CoreUserResource`
 
-Add the `CWSPS154\UsersRolesPermissions\Models\HasRole` `trait` in `User` Model
+Add the `enuenan\UsersRolesPermissions\Models\HasRole` `trait` in `User` Model
 ```php
 use HasRole;
 ```

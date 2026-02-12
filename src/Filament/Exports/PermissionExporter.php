@@ -1,14 +1,14 @@
 <?php
 
 /*
- * Copyright CWSPS154. All rights reserved.
- * @auth CWSPS154
- * @link  https://github.com/CWSPS154
+ * Copyright enuenan. All rights reserved.
+ * @auth enuenan
+ * @link  https://github.com/enuenan
  */
 
-namespace CWSPS154\UsersRolesPermissions\Filament\Exports;
+namespace enuenan\UsersRolesPermissions\Filament\Exports;
 
-use CWSPS154\UsersRolesPermissions\Models\Permission;
+use enuenan\UsersRolesPermissions\Models\Permission;
 use Filament\Actions\Exports\ExportColumn;
 use Filament\Actions\Exports\Exporter;
 use Filament\Actions\Exports\Models\Export;

@@ -1,18 +1,18 @@
 <?php
 
 /*
- * Copyright CWSPS154. All rights reserved.
- * @auth CWSPS154
- * @link  https://github.com/CWSPS154
+ * Copyright enuenan. All rights reserved.
+ * @auth enuenan
+ * @link  https://github.com/enuenan
  */
 
 declare(strict_types=1);
 
-namespace CWSPS154\UsersRolesPermissions\Console\Commands;
+namespace enuenan\UsersRolesPermissions\Console\Commands;
 
-use CWSPS154\UsersRolesPermissions\Models\Permission;
-use CWSPS154\UsersRolesPermissions\Rules\IsValidPanel;
-use CWSPS154\UsersRolesPermissions\Rules\RouteHas;
+use enuenan\UsersRolesPermissions\Models\Permission;
+use enuenan\UsersRolesPermissions\Rules\IsValidPanel;
+use enuenan\UsersRolesPermissions\Rules\RouteHas;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;

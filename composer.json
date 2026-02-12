@@ -1,8 +1,8 @@
 {
-    "name": "cwsps154/users-roles-permissions",
+    "name": "enuenan/users-roles-permissions",
     "description": "Filament User & Roles & Permissions",
     "keywords": [
-        "cwsps154",
+        "enuenan",
         "laravel",
         "filament",
         "filament-packages",
@@ -13,14 +13,14 @@
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "CWSPS154\\UsersRolesPermissions\\": "src/",
-            "CWSPS154\\UsersRolesPermissions\\Database\\Seeders\\": "database/seeders/"
+            "enuenan\\UsersRolesPermissions\\": "src/",
+            "enuenan\\UsersRolesPermissions\\Database\\Seeders\\": "database/seeders/"
         }
     },
     "authors": [
         {
-            "name": "CWSPS154",
-            "email": "codewithsps154@gmail.com"
+            "name": "enuenan",
+            "email": "emoammerfershid@gmail.com"
         }
     ],
     "minimum-stability": "stable",
@@ -28,18 +28,18 @@
     "require": {
         "php": "^8.2",
         "codewithdennis/filament-select-tree": "^4.0",
-        "filament/filament": "^4.0",
-        "ysfkaya/filament-phone-input": "^4.0",
-        "wildside/userstamps": "^2.4",
-        "filament/spatie-laravel-media-library-plugin": "^4.0",
-        "spatie/laravel-package-tools": "^1.15.0",
-        "erlandmuchasaj/laravel-gzip": "^1.1",
-        "php-ffmpeg/php-ffmpeg": "^v1.3.1"
+        "filament/filament": "^5.0",
+        "ysfkaya/filament-phone-input": "^4.1",
+        "wildside/userstamps": "^3.1",
+        "filament/spatie-laravel-media-library-plugin": "^5.2",
+        "spatie/laravel-package-tools": "^1.92",
+        "erlandmuchasaj/laravel-gzip": "^1.2",
+        "php-ffmpeg/php-ffmpeg": "^1.4"
     },
     "extra": {
         "laravel": {
             "providers": [
-                "CWSPS154\\UsersRolesPermissions\\UsersRolesPermissionsServiceProvider"
+                "enuenan\\UsersRolesPermissions\\UsersRolesPermissionsServiceProvider"
             ]
         }
     }

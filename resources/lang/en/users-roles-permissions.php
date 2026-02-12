@@ -1,9 +1,9 @@
 <?php
 
 /*
- * Copyright CWSPS154. All rights reserved.
- * @auth CWSPS154
- * @link  https://github.com/CWSPS154
+ * Copyright enuenan. All rights reserved.
+ * @auth enuenan
+ * @link  https://github.com/enuenan
  */
 
 return [

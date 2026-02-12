@@ -1,17 +1,17 @@
 <?php
 
 /*
- * Copyright CWSPS154. All rights reserved.
- * @auth CWSPS154
- * @link  https://github.com/CWSPS154
+ * Copyright enuenan. All rights reserved.
+ * @auth enuenan
+ * @link  https://github.com/enuenan
  */
 
-use CWSPS154\UsersRolesPermissions\Filament\Clusters\UserManager;
-use CWSPS154\UsersRolesPermissions\Filament\Clusters\UserManager\Resources\PermissionResource;
-use CWSPS154\UsersRolesPermissions\Filament\Clusters\UserManager\Resources\RoleResource;
-use CWSPS154\UsersRolesPermissions\Filament\Clusters\UserManager\Resources\UserResource;
-use CWSPS154\UsersRolesPermissions\Filament\Exports\PermissionExporter;
-use CWSPS154\UsersRolesPermissions\Filament\Imports\PermissionImporter;
+use enuenan\UsersRolesPermissions\Filament\Clusters\UserManager;
+use enuenan\UsersRolesPermissions\Filament\Clusters\UserManager\Resources\PermissionResource;
+use enuenan\UsersRolesPermissions\Filament\Clusters\UserManager\Resources\RoleResource;
+use enuenan\UsersRolesPermissions\Filament\Clusters\UserManager\Resources\UserResource;
+use enuenan\UsersRolesPermissions\Filament\Exports\PermissionExporter;
+use enuenan\UsersRolesPermissions\Filament\Imports\PermissionImporter;
 
 return [
     'cluster' => UserManager::class,
@@ -21,9 +21,9 @@ return [
         'permission' => PermissionResource::class,
     ],
     'manager' => [
-        'user' => 'CWSPS154\UsersRolesPermissions\Filament\Clusters\UserManager\Resources\UserResource\Pages\ManageUsers',
-        'role' => 'CWSPS154\UsersRolesPermissions\Filament\Clusters\UserManager\Resources\RoleResource\Pages\ManageRoles',
-        'permission' => 'CWSPS154\UsersRolesPermissions\Filament\Clusters\UserManager\Resources\PermissionResource\Pages\ManagePermissions',
+        'user' => 'enuenan\UsersRolesPermissions\Filament\Clusters\UserManager\Resources\UserResource\Pages\ManageUsers',
+        'role' => 'enuenan\UsersRolesPermissions\Filament\Clusters\UserManager\Resources\RoleResource\Pages\ManageRoles',
+        'permission' => 'enuenan\UsersRolesPermissions\Filament\Clusters\UserManager\Resources\PermissionResource\Pages\ManagePermissions',
     ],
     'export' => [
         'permission' => PermissionExporter::class,

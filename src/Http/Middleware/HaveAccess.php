@@ -1,16 +1,16 @@
 <?php
 
 /*
- * Copyright CWSPS154. All rights reserved.
- * @auth CWSPS154
- * @link  https://github.com/CWSPS154
+ * Copyright enuenan. All rights reserved.
+ * @auth enuenan
+ * @link  https://github.com/enuenan
  */
 
-namespace CWSPS154\UsersRolesPermissions\Http\Middleware;
+namespace enuenan\UsersRolesPermissions\Http\Middleware;
 
 use Closure;
-use CWSPS154\UsersRolesPermissions\Models\Permission;
-use CWSPS154\UsersRolesPermissions\Models\RolePermission;
+use enuenan\UsersRolesPermissions\Models\Permission;
+use enuenan\UsersRolesPermissions\Models\RolePermission;
 use Exception;
 use Filament\Facades\Filament;
 use Filament\Notifications\Notification;

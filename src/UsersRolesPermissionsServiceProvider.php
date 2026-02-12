@@ -1,20 +1,20 @@
 <?php
 
 /*
- * Copyright CWSPS154. All rights reserved.
- * @auth CWSPS154
- * @link  https://github.com/CWSPS154
+ * Copyright enuenan. All rights reserved.
+ * @auth enuenan
+ * @link  https://github.com/enuenan
  */
 
 declare(strict_types=1);
 
-namespace CWSPS154\UsersRolesPermissions;
+namespace enuenan\UsersRolesPermissions;
 
 use App\Models\User;
-use CWSPS154\UsersRolesPermissions\Console\Commands\SyncPermissions;
-use CWSPS154\UsersRolesPermissions\Database\Seeders\DatabaseSeeder;
-use CWSPS154\UsersRolesPermissions\Models\Permission;
-use CWSPS154\UsersRolesPermissions\Models\RolePermission;
+use enuenan\UsersRolesPermissions\Console\Commands\SyncPermissions;
+use enuenan\UsersRolesPermissions\Database\Seeders\DatabaseSeeder;
+use enuenan\UsersRolesPermissions\Models\Permission;
+use enuenan\UsersRolesPermissions\Models\RolePermission;
 use Filament\Facades\Filament;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Gate;
@@ -78,7 +78,7 @@ class UsersRolesPermissionsServiceProvider extends PackageServiceProvider
                             $command->comment('You can now access the dashboard with email admin@gmail.com & password admin@123');
                         }
                         $command->info('I hope this package will help you to build user management system');
-                        $command->askToStarRepoOnGitHub('CWSPS154/users-roles-permissions');
+                        $command->askToStarRepoOnGitHub('enuenan/users-roles-permissions');
                     });
             });
     }
