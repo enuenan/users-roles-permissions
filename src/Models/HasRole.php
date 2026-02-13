@@ -11,13 +11,14 @@ declare(strict_types=1);
 namespace enuenan\UsersRolesPermissions\Models;
 
 use Filament\Panel;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\SoftDeletes;
-use Illuminate\Support\Facades\Cache;
 use Spatie\Image\Enums\Fit;
+use Illuminate\Support\Facades\Cache;
 use Spatie\MediaLibrary\InteractsWithMedia;
+use Mattiverse\Userstamps\Traits\Userstamps;
+use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
-use Wildside\Userstamps\Userstamps;
+// use Wildside\Userstamps\Userstamps;
 
 trait HasRole
 {
@@ -45,7 +46,7 @@ trait HasRole
 
     public function isOnline(): bool
     {
-        return Cache::has('user-is-online.'.$this->id);
+        return Cache::has('user-is-online.' . $this->id);
     }
 
     public function canAccessPanel(Panel $panel): bool
