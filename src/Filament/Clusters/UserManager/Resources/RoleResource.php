@@ -11,7 +11,6 @@ namespace enuenan\UsersRolesPermissions\Filament\Clusters\UserManager\Resources;
 use Filament\Forms;
 use Filament\Tables;
 use Filament\Tables\Table;
-use Ramsey\Collection\Set;
 use Illuminate\Support\Str;
 use Filament\Schemas\Schema;
 use Filament\Clusters\Cluster;
@@ -25,6 +24,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Contracts\Support\Htmlable;
 use enuenan\UsersRolesPermissions\Models\Role;
 use Filament\Schemas\Components\Utilities\Get;
+use Filament\Schemas\Components\Utilities\Set;
 use CodeWithDennis\FilamentSelectTree\SelectTree;
 
 class RoleResource extends Resource
